@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <a href="/logout/">Exit</a>
+        <br>
+        {% for log in logger %}
+            <ul>
+                <li>Time: {{log.time}}</li>
+                <li>Level: {{log.level}}</li>
+                <li>Name: {{log.name_logger}}</li>
+                <li>Sender: {{log.sender}}</li>
+                <li>Message: {{log.message}}</li>
+            </ul>
+        {% empty %}
+
+        {% endfor %}
+    {% else %}
+        <a href="/register/">Registration</a>
+    <br>
+        <a href="/login/">Login</a>
+    {% endif %}
+</body>
+</html>
